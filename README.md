@@ -6,13 +6,13 @@
 
 
 
-##### **注意：所有需要添加cookie的接口所需要的token由==登录接口==通过==cookie==返回，userId由==登录接口==通过==json==返回。**
+##### **注意：所有需要添加cookie的接口所需要的token由登录接口通过cookie返回，userId由登录接口通过json返回。**
 
 ---
 
 # 用户接口
 ## Get
-### ==登录==
+### 登录
 
 请求地址：http://116.196.107.16:8080/note/login
 
@@ -54,7 +54,7 @@ JSON
 15| 该用户不存在|无
 ---
 
-### ==获取个人信息==
+### 获取个人信息
 
 请求地址：http://116.196.107.16:8080/note/info
 
@@ -99,7 +99,7 @@ JSON
 ---
 
 ## Post
-### ==注册==
+### 注册
 
 请求地址：http://116.196.107.16:8080/note/register
 
@@ -140,7 +140,7 @@ JSON
 
 ---
 
-### ==修改密码==
+### 修改密码
 
 请求地址：http://116.196.107.16:8080/note/updatePwd
 
@@ -182,7 +182,7 @@ JSON
 
 ---
 
-### ==更新个人简介==
+### 更新个人简介
 
 请求地址：http://116.196.107.16:8080/note/updateProfile
 
@@ -222,7 +222,7 @@ JSON
 # 日记接口
 ## Get
 
-### ==获取日记==
+### 获取日记
 
 请求地址：http://116.196.107.16:8080/note/getNote
 
@@ -281,7 +281,7 @@ JSON
 ---
 
 ## Post
-### ==添加日记==
+### 添加日记
 
 请求地址：http://116.196.107.16:8080/note/addNote
 
@@ -328,7 +328,7 @@ JSON
 
 ---
 
-### ==更新日记==
+### 更新日记
 
 请求地址：http://116.196.107.16:8080/note/updateNote
 
@@ -375,7 +375,7 @@ JSON
 15| 该用户不存在|无
 
 ---
-### ==删除日记==
+### 删除日记
 
 请求地址：http://116.196.107.16:8080/note/deleteNote
 
@@ -428,7 +428,7 @@ JSON
 
 # User Api
 ## Get
-### ==Login==
+### Login
 
 request url：http://116.196.107.16:8080/note/login
 
@@ -470,7 +470,7 @@ code |info|description
 15| 该用户不存在(user is not exist)|none
 ---
 
-### ==get userInfo==
+### get userInfo
 
 request url：http://116.196.107.16:8080/note/info
 
@@ -515,7 +515,7 @@ code |info|description
 ---
 
 ## Post
-### ==register==
+### register
 
 request url：http://116.196.107.16:8080/note/register
 
@@ -556,7 +556,7 @@ code |info|description
 
 ---
 
-### ==update password==
+### update password
 
 request url：http://116.196.107.16:8080/note/updatePwd
 
@@ -598,7 +598,7 @@ type |info|description
 
 ---
 
-### ==update personal profile==
+### update personal profile
 
 request url：http://116.196.107.16:8080/note/updateProfile
 
@@ -638,7 +638,7 @@ type |info|description
 # note api
 ## Get
 
-### ==get note==
+### get note
 
 request url：http://116.196.107.16:8080/note/getNote
 
@@ -697,7 +697,7 @@ type |info|description
 ---
 
 ## Post
-### ==add note==
+### add note
 
 request url：http://116.196.107.16:8080/note/addNote
 
@@ -746,7 +746,7 @@ type |info|description
 
 ---
 
-### ==update note==
+### update note
 
 request url：http://116.196.107.16:8080/note/updateNote
 
@@ -797,7 +797,7 @@ param | type| length|not null|description
 
 
 ---
-### ==delete note==
+### delete note
 
 request url：http://116.196.107.16:8080/note/deleteNote
 
