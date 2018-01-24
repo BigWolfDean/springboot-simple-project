@@ -828,7 +828,7 @@ error code
 
 
 param | type| length|not null|description
----|---|--
+---|---|---
 4|用户token校验失败(token check error)|none
 6 | 用户ID参数必传(userId is needed)|none
 10 | token参数必传(token is needed)|none
