@@ -1,6 +1,5 @@
 package com.lang.langnote.controller;
 
-import com.lang.langnote.dto.UserAuthorizeDTO;
 import com.lang.langnote.dto.UserNoteDTO;
 import com.lang.langnote.service.NoteService;
 import com.lang.langnote.utils.ResultVOUtil;
@@ -9,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping
@@ -29,13 +30,13 @@ public class NoteController {
      * @throws Exception
      */
     @GetMapping(value = "getNote")
-    public ResultVO noteList(UserAuthorizeDTO authorizeDTO,
+    public ResultVO noteList(HttpServletRequest servletRequest,
                              @RequestParam(value = "page", defaultValue = "1") Integer page,
                              @RequestParam(value = "size", defaultValue = "10") Integer size) throws Exception {
 
-        PageRequest request = new PageRequest(page - 1, size);
+        PageRequest pageRequest = new PageRequest(page - 1, size);
 
-        return ResultVOUtil.success(noteService.noteList(authorizeDTO, request).getContent());
+        return ResultVOUtil.success(noteService.noteList(servletRequest, pageRequest).getContent());
 
     }
 
@@ -48,9 +49,9 @@ public class NoteController {
      * @throws Exception
      */
     @PostMapping(value = "addNote")
-    public ResultVO add(UserNoteDTO noteDTO) throws Exception {
+    public ResultVO add(HttpServletRequest servletRequest, UserNoteDTO noteDTO) throws Exception {
         log.error("这是传递进来的UserNoteDTO=>{}", noteDTO.toString());
-        return ResultVOUtil.success(noteService.addNote(noteDTO));
+        return ResultVOUtil.success(noteService.addNote(servletRequest, noteDTO));
     }
 
 
@@ -63,15 +64,15 @@ public class NoteController {
      * @throws Exception
      */
     @PostMapping(value = "updateNote")
-    public ResultVO update(UserNoteDTO noteDTO) throws Exception {
+    public ResultVO update(HttpServletRequest servletRequest, UserNoteDTO noteDTO) throws Exception {
         log.error("这是传递进来的UserNoteDTO=>{}", noteDTO.toString());
-        return ResultVOUtil.success(noteService.updateNote(noteDTO));
+        return ResultVOUtil.success(noteService.updateNote(servletRequest, noteDTO));
     }
 
 
     @PostMapping(value = "deleteNote")
-    public ResultVO delete(UserNoteDTO noteDTO) throws Exception {
-        noteService.delNote(noteDTO);
+    public ResultVO delete(HttpServletRequest servletRequest, UserNoteDTO noteDTO) throws Exception {
+        noteService.delNote(servletRequest, noteDTO);
         log.error("noteDTO => {}", noteDTO);
         return ResultVOUtil.success();
     }

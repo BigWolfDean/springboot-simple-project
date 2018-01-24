@@ -17,7 +17,7 @@ public enum ResultEnum {
     NOTE_TITLE_NON_ERROR(12, "标题参数必传"),
     NOTE_CONTENT_NON_ERROR(13, "内容参数必传"),
     NOTE_ID_NON_ERROR(14, "noteId参数必传"),
-    ;
+    USER_NOT_EXIST(15, "该用户不存在"),;
 
     private Integer code;
 

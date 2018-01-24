@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @RequestMapping
 @RestController
 public class UserController {
@@ -43,21 +46,20 @@ public class UserController {
      * @throws Exception
      */
     @GetMapping(value = "/login")
-    public ResultVO login(UserLoginEntity loginEntity) throws Exception {
-        return ResultVOUtil.success(service.userLogin(loginEntity));
+    public ResultVO login(UserLoginEntity loginEntity, HttpServletResponse servletResponse) throws Exception {
+        return ResultVOUtil.success(service.userLogin(loginEntity, servletResponse));
     }
 
 
     /**
      * 获取个人资料
      *
-     * @param infoDTO
      * @return
      * @throws Exception
      */
     @GetMapping(value = "/info")
-    public ResultVO info(UserInfoDTO infoDTO) throws Exception {
-        return ResultVOUtil.success(service.userInfo(infoDTO));
+    public ResultVO info(HttpServletRequest servletRequest) throws Exception {
+        return ResultVOUtil.success(service.userInfo(servletRequest));
     }
 
 
@@ -70,8 +72,8 @@ public class UserController {
      * @throws Exception
      */
     @PostMapping(value = "/updatePwd")
-    public ResultVO updatePwd(UserInfoDTO infoDTO) throws Exception {
-        service.updatePwd(infoDTO);
+    public ResultVO updatePwd(HttpServletRequest servletRequest, UserInfoDTO infoDTO) throws Exception {
+        service.updatePwd(servletRequest, infoDTO);
         return ResultVOUtil.success();
     }
 
@@ -85,8 +87,8 @@ public class UserController {
      * @throws Exception
      */
     @PostMapping(value = "/updateProfile")
-    public ResultVO updateProfile(UserInfoDTO infoDTO) throws Exception {
-        service.updateProfile(infoDTO);
+    public ResultVO updateProfile(HttpServletRequest servletRequest, UserInfoDTO infoDTO) throws Exception {
+        service.updateProfile(servletRequest, infoDTO);
         return ResultVOUtil.success();
     }
 
@@ -96,13 +98,12 @@ public class UserController {
      * 请求参数（必要）
      * userId
      *
-     * @param infoDTO
      * @return
      * @throws Exception
      */
     @PostMapping(value = "/logout")
-    public ResultVO logout(UserInfoDTO infoDTO) throws Exception {
-        service.userLogout(infoDTO);
+    public ResultVO logout(HttpServletRequest servletRequest) throws Exception {
+        service.userLogout(servletRequest);
         return ResultVOUtil.success();
     }
 

@@ -18,12 +18,12 @@ public class Util {
     /**
      * 校验token
      */
-    public static void checkToken(UserInfoDTO userInfoDTO, String token) throws Exception {
+    public static void checkToken(String newToken, String oldToken) throws Exception {
         //校验token
-        if (StringUtils.isEmpty(token)) {
+        if (StringUtils.isEmpty(newToken)) {
             throw new NoteException(ResultEnum.TOKEN_CHECK_ERROR);
         }
-        if (!token.equals(userInfoDTO.getToken())) {
+        if (!oldToken.equals(newToken)) {
             throw new NoteException(ResultEnum.TOKEN_CHECK_ERROR);
         }
     }

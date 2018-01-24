@@ -13,8 +13,6 @@ public class UserInfoDTO {
 
     private String newPwd;
 
-    private String token;
-
     private String userProfile;
 
 

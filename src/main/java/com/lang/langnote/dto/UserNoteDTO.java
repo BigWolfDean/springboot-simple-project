@@ -7,8 +7,6 @@ public class UserNoteDTO {
 
     private String userId;
 
-    private String token;
-
     private Long noteId;
 
     private String noteTitle;
